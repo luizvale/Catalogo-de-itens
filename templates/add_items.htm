@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1> New Menu Item </h1>
+
+    <form action="{{url_for('newMenuItem', category_id=category_id, items_id = items_id )}}" method = 'POST'>
+    
+    <p>Name:</p>
+    
+    <input type='text' size='30' name='name'>
+    
+    <p>description:</p>
+    
+    <input type='text' size='30' name='description'>
+    
+    <p>Price:</p>
+    
+    <input type='text' size='30' name='price'>
+    
+    <p>Course:</p>
+    
+    <input type='text' size='30' name='course'>
+    
+    <br>
+    <br>
+    
+    
+    <input type='submit' value='Create'>
+    
+    </form>  
+
+</body>
+</html>
