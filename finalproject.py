@@ -17,6 +17,9 @@ import json
 from flask import make_response
 import requests
 
+from google.oauth2 import id_token
+from google.auth.transport import requests
+
 app = Flask(__name__)
 
 engine = create_engine('sqlite:///accessories_store.db', connect_args={'check_same_thread': False})
@@ -32,6 +35,20 @@ def showLogin():
                     for x in range(52))
     login_session['state'] = state
     return render_template('login.htm', STATE=state)
+
+
+
+func_gconnect = '''try:
+                        idinfo = id_token.verify_oauth2_token(token, requests.Request(), CLIENT_ID)
+
+
+                    if idinfo['iss'] not in ['accounts.google.com', 'https://accounts.google.com']:
+                        raise ValueError('Wrong issuer.')
+
+                    userid = idinfo['sub']
+                    except ValueError:
+                    pass '''
+
 
 @app.route('/fbconnect', methods=['POST'])
 def fbconnect():

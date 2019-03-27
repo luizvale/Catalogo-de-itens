@@ -27,8 +27,8 @@ class User(Base):
     def serialize(self):
         return {
             'name': self.name,
-            'e-mail': self.email
-            'client_key': self.id, }
+            'e-mail': self.email,
+            'client_key': self.id }
             
 class Category(Base):
     __tablename__ = 'category_items'
